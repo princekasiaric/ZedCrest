@@ -1,0 +1,8 @@
+C:\Users\PRINCE\Documents\Personal project\ZedCrest\ZedConf.Entities\bin\Debug\netcoreapp3.1\ZedConf.Entities.deps.json
+C:\Users\PRINCE\Documents\Personal project\ZedCrest\ZedConf.Entities\bin\Debug\netcoreapp3.1\ZedConf.Entities.dll
+C:\Users\PRINCE\Documents\Personal project\ZedCrest\ZedConf.Entities\bin\Debug\netcoreapp3.1\ZedConf.Entities.pdb
+C:\Users\PRINCE\Documents\Personal project\ZedCrest\ZedConf.Entities\obj\Debug\netcoreapp3.1\ZedConf.Entities.csprojAssemblyReference.cache
+C:\Users\PRINCE\Documents\Personal project\ZedCrest\ZedConf.Entities\obj\Debug\netcoreapp3.1\ZedConf.Entities.AssemblyInfoInputs.cache
+C:\Users\PRINCE\Documents\Personal project\ZedCrest\ZedConf.Entities\obj\Debug\netcoreapp3.1\ZedConf.Entities.AssemblyInfo.cs
+C:\Users\PRINCE\Documents\Personal project\ZedCrest\ZedConf.Entities\obj\Debug\netcoreapp3.1\ZedConf.Entities.dll
+C:\Users\PRINCE\Documents\Personal project\ZedCrest\ZedConf.Entities\obj\Debug\netcoreapp3.1\ZedConf.Entities.pdb

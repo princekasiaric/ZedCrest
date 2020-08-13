@@ -9,4 +9,11 @@
     <ProjectReference Include="..\ZedConf.Persistence\ZedConf.Persistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Mapping\" />
+    <Folder Include="Request\" />
+    <Folder Include="Response\" />
+    <Folder Include="Services\Implementation\" />
+  </ItemGroup>
+
 </Project>

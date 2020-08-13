@@ -1,0 +1,13 @@
+C:\Users\PRINCE\Documents\Personal project\ZedCrest\ZedConf.Persistence\bin\Debug\netcoreapp3.1\ZedConf.Entities.dll
+C:\Users\PRINCE\Documents\Personal project\ZedCrest\ZedConf.Persistence\obj\Debug\netcoreapp3.1\ZedConf.Persistence.csprojAssemblyReference.cache
+C:\Users\PRINCE\Documents\Personal project\ZedCrest\ZedConf.Persistence\obj\Debug\netcoreapp3.1\ZedConf.Persistence.AssemblyInfoInputs.cache
+C:\Users\PRINCE\Documents\Personal project\ZedCrest\ZedConf.Persistence\obj\Debug\netcoreapp3.1\ZedConf.Persistence.AssemblyInfo.cs
+C:\Users\PRINCE\Documents\Personal project\ZedCrest\ZedConf.Persistence\bin\Debug\netcoreapp3.1\ZedConf.Persistence.deps.json
+C:\Users\PRINCE\Documents\Personal project\ZedCrest\ZedConf.Persistence\bin\Debug\netcoreapp3.1\ZedConf.Persistence.runtimeconfig.json
+C:\Users\PRINCE\Documents\Personal project\ZedCrest\ZedConf.Persistence\bin\Debug\netcoreapp3.1\ZedConf.Persistence.runtimeconfig.dev.json
+C:\Users\PRINCE\Documents\Personal project\ZedCrest\ZedConf.Persistence\bin\Debug\netcoreapp3.1\ZedConf.Persistence.dll
+C:\Users\PRINCE\Documents\Personal project\ZedCrest\ZedConf.Persistence\bin\Debug\netcoreapp3.1\ZedConf.Persistence.pdb
+C:\Users\PRINCE\Documents\Personal project\ZedCrest\ZedConf.Persistence\bin\Debug\netcoreapp3.1\ZedConf.Entities.pdb
+C:\Users\PRINCE\Documents\Personal project\ZedCrest\ZedConf.Persistence\obj\Debug\netcoreapp3.1\ZedConf.Persistence.csproj.CopyComplete
+C:\Users\PRINCE\Documents\Personal project\ZedCrest\ZedConf.Persistence\obj\Debug\netcoreapp3.1\ZedConf.Persistence.dll
+C:\Users\PRINCE\Documents\Personal project\ZedCrest\ZedConf.Persistence\obj\Debug\netcoreapp3.1\ZedConf.Persistence.pdb

@@ -11,7 +11,7 @@ namespace ZedConf.Persistence.Repository.Implementation
 
         public SpeakerRepo(ZedConfDbContext context) : base(context){}
 
-        public async Task<ICollection<Speaker>> GetSpeakers() => 
+        public async Task<ICollection<Speaker>> GetSpeakersAsync() => 
             await ZedConfDbContext.Speakers.AsNoTracking().ToListAsync();
     }
 }

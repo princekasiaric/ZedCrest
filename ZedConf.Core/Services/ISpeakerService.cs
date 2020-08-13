@@ -2,9 +2,9 @@
 using System.Threading.Tasks;
 using ZedConf.Entities;
 
-namespace ZedConf.Persistence.Repository
+namespace ZedConf.Core.Services
 {
-    public interface ISpeakerRepo : IBaseRepo<Speaker>
+    public interface ISpeakerService
     {
         Task<ICollection<Speaker>> GetSpeakersAsync();
     }

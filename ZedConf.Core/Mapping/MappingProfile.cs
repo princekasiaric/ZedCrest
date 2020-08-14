@@ -8,14 +8,16 @@ namespace ZedConf.Core.Mapping
     {
         public MappingProfile()
         {
-            CreateMap<Speaker, SpeakerDTO>().ReverseMap();
+            CreateMap<Speaker, SpeakerDTO>();
 
             CreateMap<Attendee, AttendeeDTO>()
-                .ForMember(dest => dest.TalkDTO, map => map.MapFrom(src => src.Talk));
+                .ForMember(dest => dest.TalkDTO, map => map.MapFrom(src => src.Talk))
+                .ReverseMap();
 
             CreateMap<Talk, TalkDTO>()
                 .ForMember(dest => dest.SpeakerDTO, map => map.MapFrom(src => src.Speaker))
-                .ForMember(dest => dest.AttendeeDTO, map => map.MapFrom(src => src.Attendees));
+                .ForMember(dest => dest.AttendeeDTO, map => map.MapFrom(src => src.Attendees))
+                .ReverseMap();
         }
     }
 }

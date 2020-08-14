@@ -120,7 +120,7 @@ namespace ZedConf.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddAttendeeForATalk(TalkViewModel model)
+        public async Task<IActionResult> AddAttendeeForATalk([FromBody]TalkViewModel model)
         {
             var talk = new Talk();
             try

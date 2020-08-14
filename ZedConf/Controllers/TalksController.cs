@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ZedConf.Core.DTO;
@@ -39,7 +36,7 @@ namespace ZedConf.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Failed to pull request: {DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff")} : {ex.Message}");
+                _logger.LogError(ex.Message, $"Failed to pull request for Talks: {DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff")}");
             }
             _logger.LogInformation("Successfully pulled request for Talks");
             return Ok(new ApiResponse { Status = true, Message = "Successful", Result = talkDTos });
@@ -56,9 +53,9 @@ namespace ZedConf.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Failed to pull request for Talks per Title: {DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff")} : {ex.Message}");
+                _logger.LogError(ex.Message, $"Failed to pull request for Talks per Title ==> {title}: {DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff")}");
             }
-            _logger.LogInformation("Successfully pulled request for talks");
+            _logger.LogInformation("Successfully pulled request for Talks per Title");
             return Ok(new ApiResponse { Status = true, Message = "Successful", Result = talkDTo });
         }
 
@@ -74,7 +71,7 @@ namespace ZedConf.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Failed to add Talk: {DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff")} : {ex.Message}");
+                _logger.LogError(ex.Message, $"Failed to add Talk: {DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff")}");
             }
             _logger.LogInformation("Successfully added Talk");
             return Created("",new ApiResponse { Status = true, Message = "Successful" });
@@ -91,7 +88,7 @@ namespace ZedConf.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Failed to fetch speakers: {DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff")} : {ex.Message}");
+                _logger.LogError(ex.Message, $"Failed to fetch speakers: {DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff")}");
             }
             _logger.LogInformation("Successfully fetched speakers");
             return Ok(new ApiResponse { Status = true, Message = "Successful", Result = speakerDTOs });
@@ -107,7 +104,7 @@ namespace ZedConf.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Failed to delete Talk: {DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff")} : {ex.Message}");
+                _logger.LogError(ex.Message, $"Failed to delete talkID ==> {talkID}: {DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff")}");
             }
             _logger.LogInformation("Talk was successfully deleted");
             return NoContent();

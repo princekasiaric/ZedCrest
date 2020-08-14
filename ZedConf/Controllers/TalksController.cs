@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ZedConf.Core.DTO;
 using ZedConf.Core.Response;
 using ZedConf.Core.Services;
+using ZedConf.Core.ViewModel;
+using ZedConf.Entities;
 
 namespace ZedConf.Controllers
 {
@@ -14,14 +17,20 @@ namespace ZedConf.Controllers
     {
         private readonly ITalkService _talkService;
         private readonly ISpeakerService _speakerService;
+        private readonly IAttendeeService _attendeeService;
+        private readonly Mapper _mapper;
         private readonly ILogger<TalksController> _logger;
 
         public TalksController(ITalkService talkService, 
-                               ISpeakerService speakerService, 
+                               ISpeakerService speakerService,
+                               IAttendeeService attendeeService,
+                               Mapper mapper,
                                ILogger<TalksController> logger)
         {
             _talkService = talkService;
             _speakerService = speakerService;
+            _attendeeService = attendeeService;
+            _mapper = mapper;
             _logger = logger;
         }
 
@@ -105,6 +114,37 @@ namespace ZedConf.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message, $"Failed to delete talkID ==> {talkID}: {DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff")}");
+            }
+            _logger.LogInformation("Talk was successfully deleted");
+            return NoContent();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddAttendeeForATalk(TalkViewModel model)
+        {
+            var talk = new Talk();
+            try
+            {
+                if (model.TalkID > 0)
+                    talk = await _talkService.GetTalkAsync(model.TalkID);
+                if (talk == null)
+                    return NotFound(new ApiResponse { Status = false, Message = "Not Found" });
+                if(model.Attendees.Count > 0)
+                {
+                    foreach (var item in model.Attendees)
+                    {
+                        talk.Attendees.Add(item);
+                    }
+                    await _talkService.AddTalkAsync(_mapper.Map<TalkDTO>(talk));
+                }
+                else
+                {
+                    return BadRequest(new ApiResponse { Status = false, Message = "Attendee list is empty" });
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message, $"Failed to delete talkID: {DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff")}");
             }
             _logger.LogInformation("Talk was successfully deleted");
             return NoContent();

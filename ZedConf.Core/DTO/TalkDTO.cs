@@ -25,5 +25,7 @@ namespace ZedConf.Core.DTO
         public string Email { get; set; }
         [Required(ErrorMessage = "This field is required")]
         public string Bio { get; set; }
+
+
     }
 }

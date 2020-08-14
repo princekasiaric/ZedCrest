@@ -9,5 +9,6 @@ namespace ZedConf.Core.Services
         Task<TalkDTO> AddTalkAsync(TalkDTO talk);
         Task<TalkDTO> GetTalkByTitleAsync(string title);
         Task<ICollection<TalkDTO>> GetTalksAsync();
+        Task AddAttendeeForATalk();
     }
 }

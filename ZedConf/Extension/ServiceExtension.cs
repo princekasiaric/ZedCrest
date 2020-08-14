@@ -1,7 +1,8 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.DependencyInjection;
 using ZedConf.Core.Mapping;
-using ZedConf.Persistence;
+using ZedConf.Core.Services;
+using ZedConf.Core.Services.Implementation;
 using ZedConf.Persistence.Repository;
 using ZedConf.Persistence.Repository.Implementation;
 
@@ -16,17 +17,11 @@ namespace ZedConf.Extension
             services.AddScoped<IAttendeeRepo, AttendeeRepo>();
         }
 
-        public static void ConfigureDbContext(this IServiceCollection services)
-        {
-            services.AddDbContext<ZedConfDbContext>(opt =>
-            {
-                
-            });
-        }
-
         public static void ConfigureAPICore(this IServiceCollection services)
         {
-
+            services.AddScoped<ITalkService, TalkService>();
+            services.AddScoped<ISpeakerService, SpeakerService>();
+            services.AddScoped<IAttendeeService, AttendeeService>();
         }
 
         public static void ConfigureAutomapper(this IServiceCollection services)

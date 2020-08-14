@@ -11,6 +11,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Serilog;
+using ZedConf.Extension;
 using ZedConf.Persistence;
 using ZedConf.Settings;
 
@@ -34,6 +36,11 @@ namespace ZedConf
 
             var connString = settings.ConnectionString.Default;
             services.AddDbContext<ZedConfDbContext>(opt => opt.UseSqlServer(connString));
+
+            services.ConfigureRepository();
+            services.ConfigureAPICore();
+            services.ConfigureAutomapper();
+
             services.AddControllers();
         }
 
@@ -46,6 +53,8 @@ namespace ZedConf
             }
 
             app.UseHttpsRedirection();
+
+            app.UseSerilogRequestLogging();
 
             app.UseRouting();
 

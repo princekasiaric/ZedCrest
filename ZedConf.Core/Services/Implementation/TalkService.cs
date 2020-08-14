@@ -19,6 +19,11 @@ namespace ZedConf.Core.Services.Implementation
             _mapper = mapper;
         }
 
+        public Task AddAttendeeForATalk()
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<TalkDTO> AddTalkAsync(TalkDTO talkDTO)
         {
             var talk = _mapper.Map<Talk>(talkDTO);

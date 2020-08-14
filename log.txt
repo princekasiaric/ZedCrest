@@ -1,0 +1,222 @@
+08/14/2020 06:06:35 ZedConf API Starting Up... 2020 - 08 - 14 13: 06:35.621
+08/14/2020 06:06:54 ZedConf API Failed to Start Correctly: 2020-08-14 13:06:54.455
+System.AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: ZedConf.Core.Services.ITalkService Lifetime: Scoped ImplementationType: ZedConf.Core.Services.Implementation.TalkService': Unable to resolve service for type 'ZedConf.Persistence.UnitOfWork.IUnitOfWork' while attempting to activate 'ZedConf.Core.Services.Implementation.TalkService'.) (Error while validating the service descriptor 'ServiceType: ZedConf.Core.Services.ISpeakerService Lifetime: Scoped ImplementationType: ZedConf.Core.Services.Implementation.SpeakerService': Unable to resolve service for type 'ZedConf.Persistence.UnitOfWork.IUnitOfWork' while attempting to activate 'ZedConf.Core.Services.Implementation.SpeakerService'.) (Error while validating the service descriptor 'ServiceType: ZedConf.Core.Services.IAttendeeService Lifetime: Scoped ImplementationType: ZedConf.Core.Services.Implementation.AttendeeService': Unable to resolve service for type 'ZedConf.Persistence.UnitOfWork.IUnitOfWork' while attempting to activate 'ZedConf.Core.Services.Implementation.AttendeeService'.)
+ ---> System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: ZedConf.Core.Services.ITalkService Lifetime: Scoped ImplementationType: ZedConf.Core.Services.Implementation.TalkService': Unable to resolve service for type 'ZedConf.Persistence.UnitOfWork.IUnitOfWork' while attempting to activate 'ZedConf.Core.Services.Implementation.TalkService'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'ZedConf.Persistence.UnitOfWork.IUnitOfWork' while attempting to activate 'ZedConf.Core.Services.Implementation.TalkService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, ServiceProviderOptions options)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory.CreateServiceProvider(IServiceCollection containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at ZedConf.Program.Main(String[] args) in C:\Users\PRINCE\Documents\Personal project\ZedCrest\ZedConf\Program.cs:line 24
+ ---> (Inner Exception #1) System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: ZedConf.Core.Services.ISpeakerService Lifetime: Scoped ImplementationType: ZedConf.Core.Services.Implementation.SpeakerService': Unable to resolve service for type 'ZedConf.Persistence.UnitOfWork.IUnitOfWork' while attempting to activate 'ZedConf.Core.Services.Implementation.SpeakerService'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'ZedConf.Persistence.UnitOfWork.IUnitOfWork' while attempting to activate 'ZedConf.Core.Services.Implementation.SpeakerService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, ServiceProviderOptions options)<---
+
+ ---> (Inner Exception #2) System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: ZedConf.Core.Services.IAttendeeService Lifetime: Scoped ImplementationType: ZedConf.Core.Services.Implementation.AttendeeService': Unable to resolve service for type 'ZedConf.Persistence.UnitOfWork.IUnitOfWork' while attempting to activate 'ZedConf.Core.Services.Implementation.AttendeeService'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'ZedConf.Persistence.UnitOfWork.IUnitOfWork' while attempting to activate 'ZedConf.Core.Services.Implementation.AttendeeService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, ServiceProviderOptions options)<---
+
+08/14/2020 07:01:54 ZedConf API Starting Up... 2020 - 08 - 14 14: 01:54.699
+08/14/2020 07:02:05 HTTP "GET" "/weatherforecast" responded 404 in 249.4041 ms
+08/14/2020 07:03:17 HTTP "GET" "/api/talks" responded 500 in 42210.5002 ms
+AutoMapper.AutoMapperMappingException: Error mapping types.
+
+Mapping types:
+Object -> ICollection`1
+System.Object -> System.Collections.Generic.ICollection`1[[ZedConf.Core.DTO.TalkDTO, ZedConf.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+ ---> AutoMapper.AutoMapperMappingException: Error mapping types.
+
+Mapping types:
+Talk -> TalkDTO
+ZedConf.Entities.Talk -> ZedConf.Core.DTO.TalkDTO
+
+Type Map configuration:
+Talk -> TalkDTO
+ZedConf.Entities.Talk -> ZedConf.Core.DTO.TalkDTO
+
+Destination Member:
+AttendeeDTO
+
+ ---> AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+ICollection`1 -> AttendeeDTO
+System.Collections.Generic.ICollection`1[[ZedConf.Entities.Attendee, ZedConf.Entities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> ZedConf.Core.DTO.AttendeeDTO
+   at lambda_method(Closure , ICollection`1 , AttendeeDTO , ResolutionContext )
+   at lambda_method(Closure , Object , ICollection`1 , ResolutionContext )
+   --- End of inner exception stack trace ---
+   at lambda_method(Closure , Object , ICollection`1 , ResolutionContext )
+   --- End of inner exception stack trace ---
+   at ZedConf.Core.Services.Implementation.TalkService.GetTalksAsync() in C:\Users\PRINCE\Documents\Personal project\ZedCrest\ZedConf.Core\Services\Implementation\TalkService.cs:line 102
+   at ZedConf.Controllers.TalksController.GetTalks() in C:\Users\PRINCE\Documents\Personal project\ZedCrest\ZedConf\Controllers\TalksController.cs:line 31
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+08/14/2020 07:03:18 An unhandled exception has occurred while executing the request.
+AutoMapper.AutoMapperMappingException: Error mapping types.
+
+Mapping types:
+Object -> ICollection`1
+System.Object -> System.Collections.Generic.ICollection`1[[ZedConf.Core.DTO.TalkDTO, ZedConf.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+ ---> AutoMapper.AutoMapperMappingException: Error mapping types.
+
+Mapping types:
+Talk -> TalkDTO
+ZedConf.Entities.Talk -> ZedConf.Core.DTO.TalkDTO
+
+Type Map configuration:
+Talk -> TalkDTO
+ZedConf.Entities.Talk -> ZedConf.Core.DTO.TalkDTO
+
+Destination Member:
+AttendeeDTO
+
+ ---> AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+ICollection`1 -> AttendeeDTO
+System.Collections.Generic.ICollection`1[[ZedConf.Entities.Attendee, ZedConf.Entities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> ZedConf.Core.DTO.AttendeeDTO
+   at lambda_method(Closure , ICollection`1 , AttendeeDTO , ResolutionContext )
+   at lambda_method(Closure , Object , ICollection`1 , ResolutionContext )
+   --- End of inner exception stack trace ---
+   at lambda_method(Closure , Object , ICollection`1 , ResolutionContext )
+   --- End of inner exception stack trace ---
+   at ZedConf.Core.Services.Implementation.TalkService.GetTalksAsync() in C:\Users\PRINCE\Documents\Personal project\ZedCrest\ZedConf.Core\Services\Implementation\TalkService.cs:line 102
+   at ZedConf.Controllers.TalksController.GetTalks() in C:\Users\PRINCE\Documents\Personal project\ZedCrest\ZedConf\Controllers\TalksController.cs:line 31
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+08/14/2020 07:03:22 HTTP "GET" "/favicon.ico" responded 404 in 0.2736 ms
+08/14/2020 07:54:51 ZedConf API Starting Up... 2020 - 08 - 14 14: 54:51.919
+08/14/2020 07:55:04 HTTP "GET" "/weatherforecast" responded 404 in 153.2133 ms
+08/14/2020 07:55:52 HTTP "GET" "/api/talks" responded 500 in 11197.7475 ms
+AutoMapper.AutoMapperMappingException: Error mapping types.
+
+Mapping types:
+Object -> ICollection`1
+System.Object -> System.Collections.Generic.ICollection`1[[ZedConf.Core.DTO.TalkDTO, ZedConf.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+ ---> AutoMapper.AutoMapperMappingException: Error mapping types.
+
+Mapping types:
+Talk -> TalkDTO
+ZedConf.Entities.Talk -> ZedConf.Core.DTO.TalkDTO
+
+Type Map configuration:
+Talk -> TalkDTO
+ZedConf.Entities.Talk -> ZedConf.Core.DTO.TalkDTO
+
+Destination Member:
+Speaker
+
+ ---> AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Talk -> Speaker
+ZedConf.Entities.Talk -> ZedConf.Entities.Speaker
+   at lambda_method(Closure , Talk , Speaker , ResolutionContext )
+   at lambda_method(Closure , Object , ICollection`1 , ResolutionContext )
+   --- End of inner exception stack trace ---
+   at lambda_method(Closure , Object , ICollection`1 , ResolutionContext )
+   --- End of inner exception stack trace ---
+   at ZedConf.Core.Services.Implementation.TalkService.GetTalksAsync() in C:\Users\PRINCE\Documents\Personal project\ZedCrest\ZedConf.Core\Services\Implementation\TalkService.cs:line 102
+   at ZedConf.Controllers.TalksController.GetTalks() in C:\Users\PRINCE\Documents\Personal project\ZedCrest\ZedConf\Controllers\TalksController.cs:line 31
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+08/14/2020 07:55:53 An unhandled exception has occurred while executing the request.
+AutoMapper.AutoMapperMappingException: Error mapping types.
+
+Mapping types:
+Object -> ICollection`1
+System.Object -> System.Collections.Generic.ICollection`1[[ZedConf.Core.DTO.TalkDTO, ZedConf.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+ ---> AutoMapper.AutoMapperMappingException: Error mapping types.
+
+Mapping types:
+Talk -> TalkDTO
+ZedConf.Entities.Talk -> ZedConf.Core.DTO.TalkDTO
+
+Type Map configuration:
+Talk -> TalkDTO
+ZedConf.Entities.Talk -> ZedConf.Core.DTO.TalkDTO
+
+Destination Member:
+Speaker
+
+ ---> AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Talk -> Speaker
+ZedConf.Entities.Talk -> ZedConf.Entities.Speaker
+   at lambda_method(Closure , Talk , Speaker , ResolutionContext )
+   at lambda_method(Closure , Object , ICollection`1 , ResolutionContext )
+   --- End of inner exception stack trace ---
+   at lambda_method(Closure , Object , ICollection`1 , ResolutionContext )
+   --- End of inner exception stack trace ---
+   at ZedConf.Core.Services.Implementation.TalkService.GetTalksAsync() in C:\Users\PRINCE\Documents\Personal project\ZedCrest\ZedConf.Core\Services\Implementation\TalkService.cs:line 102
+   at ZedConf.Controllers.TalksController.GetTalks() in C:\Users\PRINCE\Documents\Personal project\ZedCrest\ZedConf\Controllers\TalksController.cs:line 31
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+08/14/2020 08:46:06 ZedConf API Starting Up... 2020 - 08 - 14 15: 46:06.971
+08/14/2020 08:46:18 HTTP "GET" "/weatherforecast" responded 404 in 137.2206 ms
+08/14/2020 08:46:51 Successfully pulled request for Talks
+08/14/2020 08:46:51 HTTP "GET" "/api/talks" responded 200 in 13635.2257 ms

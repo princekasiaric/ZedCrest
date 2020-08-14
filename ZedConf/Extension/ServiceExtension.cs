@@ -5,6 +5,8 @@ using ZedConf.Core.Services;
 using ZedConf.Core.Services.Implementation;
 using ZedConf.Persistence.Repository;
 using ZedConf.Persistence.Repository.Implementation;
+using ZedConf.Persistence.UnitOfWork;
+using ZedConf.Persistence.UnitOfWork.Implementation;
 
 namespace ZedConf.Extension
 {
@@ -15,6 +17,7 @@ namespace ZedConf.Extension
             services.AddScoped<ITalkRepo, TalkRepo>();
             services.AddScoped<ISpeakerRepo, SpeakerRepo>();
             services.AddScoped<IAttendeeRepo, AttendeeRepo>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
 
         public static void ConfigureAPICore(this IServiceCollection services)

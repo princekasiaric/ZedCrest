@@ -19,5 +19,10 @@ namespace ZedConf.Persistence.Repository.Implementation
             await ZedConfDbContext.Talks.Include(s => s.Speaker).Include(a => a.Attendees).AsNoTracking().ToListAsync();
 
         public async Task AddTalkAsync(Talk talk) => await Add(talk);
+
+        public void RemoveTalk(Talk talk) => Remove(talk);
+
+        public async Task<Talk> GetTalkAsync(int talkID) => 
+            await ZedConfDbContext.Talks.Where(t => t.TalkID == talkID).FirstOrDefaultAsync();
     }
 }

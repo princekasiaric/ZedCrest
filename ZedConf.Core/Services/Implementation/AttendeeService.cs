@@ -19,7 +19,7 @@ namespace ZedConf.Core.Services.Implementation
             _mapper = mapper;
         }
 
-        public async Task<AttendeeDTO> AddAttendeeAsynce(AttendeeDTO attendeeDTO)
+        public async Task AddAttendeeAsynce(AttendeeDTO attendeeDTO)
         {
             var attendee = _mapper.Map<Attendee>(attendeeDTO);
             try
@@ -32,7 +32,6 @@ namespace ZedConf.Core.Services.Implementation
             {
                 throw ex;
             }
-            return _mapper.Map<AttendeeDTO>(attendee);
         }
 
         public async Task<ICollection<AttendeeDTO>> GetAttendeesAsync()

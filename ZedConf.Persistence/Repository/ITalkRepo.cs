@@ -9,5 +9,7 @@ namespace ZedConf.Persistence.Repository
         Task AddTalkAsync(Talk talk);
         Task<Talk> GetTalkByTitle(string title);
         Task<ICollection<Talk>> GetTalks();
+        void RemoveTalk(Talk talk);
+        Task<Talk> GetTalkAsync(int talkID);
     }
 }

@@ -24,7 +24,7 @@ namespace ZedConf.Core.Services.Implementation
             throw new NotImplementedException();
         }
 
-        public async Task<TalkDTO> AddTalkAsync(TalkDTO talkDTO)
+        public async Task AddTalkAsync(TalkDTO talkDTO)
         {
             var talk = _mapper.Map<Talk>(talkDTO);
             try
@@ -37,7 +37,39 @@ namespace ZedConf.Core.Services.Implementation
             {
                 throw ex;
             }
-            return _mapper.Map<TalkDTO>(talk);
+        }
+
+        public async Task DeleteTalkAsync(int talkID)
+        {
+            try
+            {
+                var talk = await _unitOfWork.TalkRepo.GetTalkAsync(talkID);
+                if (talk != null)
+                {
+                    _unitOfWork.TalkRepo.RemoveTalk(talk);
+                    await _unitOfWork.SaveAsync();
+                    await _unitOfWork.CommitChangesAsync();
+                } 
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public async Task<Talk> GetTalkAsync(int talkID)
+        {
+            Talk talk;
+            try
+            {
+                talk = await _unitOfWork.TalkRepo.GetTalkAsync(talkID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return talk;
         }
 
         public async Task<TalkDTO> GetTalkByTitleAsync(string title)

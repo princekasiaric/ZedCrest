@@ -20,12 +20,12 @@ namespace ZedConf
 
             try
             {
-                Log.Information("ZedConf API Starting Up: {time}", DateTime.UtcNow);
+                Log.Information($"ZedConf API Starting Up... {DateTime.UtcNow.ToString("yyyy - MM - dd HH: mm:ss.fff")}");
                 CreateHostBuilder(args).Build().Run();
             }
             catch (Exception ex)
             {
-                Log.Fatal(ex, "ZedConf API Failed to Start Correctly: {}");
+                Log.Fatal(ex, $"ZedConf API Failed to Start Correctly: {DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff")}");
             }
             finally
             {

@@ -38,7 +38,8 @@ namespace ZedConf
             services.AddControllers()
                     .AddFluentValidation()
                     .AddNewtonsoftJson(options => 
-                                       options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore); 
+                                       options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+            services.AddSwaggerGen();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,7 +53,11 @@ namespace ZedConf
             app.UseHttpsRedirection();
 
             app.UseSerilogRequestLogging();
-
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "ZedConf API");
+            });
             app.UseRouting();
 
             app.UseAuthorization();

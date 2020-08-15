@@ -1,17 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using ZedConf.Core.DTO;
-using ZedConf.Entities;
+using ZedConf.Core.ViewModel;
 
 namespace ZedConf.Core.Services
 {
     public interface ITalkService
     {
-        Task AddTalkAsync(TalkDTO talk);
-        Task<Talk> GetTalkAsync(int talkID);
-        Task DeleteTalkAsync(int ID);
+        Task AddTalkAsync(TalkDTO talkDTO);
+        Task DeleteTalkAsync(long ID);
         Task<TalkDTO> GetTalkByTitleAsync(string title);
         Task<ICollection<TalkDTO>> GetTalksAsync();
-        Task AddAttendeeForATalk();
+        Task AddAttendeeForATalk(TalkViewModel model);
     }
 }

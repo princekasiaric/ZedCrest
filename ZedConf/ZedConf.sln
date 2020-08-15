@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZedConf", "ZedConf.csproj", "{7D1419C5-6F22-420B-A8C2-7E4B23AEB9C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZedConf", "ZedConf.csproj", "{7D1419C5-6F22-420B-A8C2-7E4B23AEB9C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZedConf.Entities", "..\ZedConf.Entities\ZedConf.Entities.csproj", "{C1BBAB03-519B-48F3-967A-1239E8B70C24}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZedConf.Entities", "..\ZedConf.Entities\ZedConf.Entities.csproj", "{C1BBAB03-519B-48F3-967A-1239E8B70C24}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZedConf.Core", "..\ZedConf.Core\ZedConf.Core.csproj", "{6A67A931-F4AA-4E05-9355-A8406623B29D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZedConf.Core", "..\ZedConf.Core\ZedConf.Core.csproj", "{6A67A931-F4AA-4E05-9355-A8406623B29D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZedConf.Persistence", "..\ZedConf.Persistence\ZedConf.Persistence.csproj", "{D5713805-0280-45D0-8E25-71FBA803B924}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZedConf.Persistence", "..\ZedConf.Persistence\ZedConf.Persistence.csproj", "{D5713805-0280-45D0-8E25-71FBA803B924}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZedConf_Test", "..\ZedConf_Test\ZedConf_Test.csproj", "{416A0AFE-F006-4406-8FEB-8111ECA9E4CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{D5713805-0280-45D0-8E25-71FBA803B924}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5713805-0280-45D0-8E25-71FBA803B924}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5713805-0280-45D0-8E25-71FBA803B924}.Release|Any CPU.Build.0 = Release|Any CPU
+		{416A0AFE-F006-4406-8FEB-8111ECA9E4CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{416A0AFE-F006-4406-8FEB-8111ECA9E4CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{416A0AFE-F006-4406-8FEB-8111ECA9E4CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{416A0AFE-F006-4406-8FEB-8111ECA9E4CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

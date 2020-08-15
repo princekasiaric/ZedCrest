@@ -10,6 +10,6 @@ namespace ZedConf.Persistence.Repository
         Task<Talk> GetTalkByTitle(string title);
         Task<ICollection<Talk>> GetTalks();
         void RemoveTalk(Talk talk);
-        Task<Talk> GetTalkAsync(int talkID);
+        Task<Talk> GetTalkAsync(long talkID);
     }
 }

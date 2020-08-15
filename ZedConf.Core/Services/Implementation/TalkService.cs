@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using ZedConf.Core.DTO;
+using ZedConf.Core.ViewModel;
 using ZedConf.Entities;
 using ZedConf.Persistence.UnitOfWork;
 
@@ -11,17 +12,38 @@ namespace ZedConf.Core.Services.Implementation
     public class TalkService : ITalkService
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IAttendeeService _attendeeService;
         private readonly IMapper _mapper;
 
-        public TalkService(IUnitOfWork unitOfWork, IMapper mapper)
+        public TalkService(IUnitOfWork unitOfWork, 
+                           IAttendeeService attendeeService, 
+                           IMapper mapper)
         {
             _unitOfWork = unitOfWork;
+            _attendeeService = attendeeService;
             _mapper = mapper;
         }
 
-        public Task AddAttendeeForATalk()
+        public async Task AddAttendeeForATalk(TalkViewModel model)
         {
-            throw new NotImplementedException();
+            var talk = await _unitOfWork.TalkRepo.GetTalkAsync(model.TalkID);
+            try
+            {
+                if (model.Attendees.Count > 0)
+                {
+                    foreach (var attendee in model.Attendees)
+                    {
+                        talk.Attendees.Add(attendee);
+                    }
+                    await _unitOfWork.TalkRepo.AddTalkAsync(talk);
+                    await _unitOfWork.SaveAsync();
+                    await _unitOfWork.CommitChangesAsync();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public async Task AddTalkAsync(TalkDTO talkDTO)
@@ -39,7 +61,7 @@ namespace ZedConf.Core.Services.Implementation
             }
         }
 
-        public async Task DeleteTalkAsync(int talkID)
+        public async Task DeleteTalkAsync(long talkID)
         {
             try
             {
@@ -51,25 +73,10 @@ namespace ZedConf.Core.Services.Implementation
                     await _unitOfWork.CommitChangesAsync();
                 } 
             }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
-        public async Task<Talk> GetTalkAsync(int talkID)
-        {
-            Talk talk;
-            try
-            {
-                talk = await _unitOfWork.TalkRepo.GetTalkAsync(talkID);
-            }
             catch (Exception ex)
             {
-                throw ex;
+                throw ex; 
             }
-            return talk;
         }
 
         public async Task<TalkDTO> GetTalkByTitleAsync(string title)
@@ -90,12 +97,12 @@ namespace ZedConf.Core.Services.Implementation
 
         public async Task<ICollection<TalkDTO>> GetTalksAsync()
         {
-            ICollection<TalkDTO> talkDTOs = null;
+            var talkDTOs = new List<TalkDTO>();
             try
             {
                 var talks = await _unitOfWork.TalkRepo.GetTalks();
                 if (talks != null)
-                    talkDTOs = _mapper.Map<ICollection<TalkDTO>>(talks);
+                    talkDTOs = _mapper.Map<List<TalkDTO>>(talks);
             }
             catch (Exception ex)
             {

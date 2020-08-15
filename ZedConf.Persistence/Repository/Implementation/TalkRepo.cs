@@ -22,7 +22,7 @@ namespace ZedConf.Persistence.Repository.Implementation
 
         public void RemoveTalk(Talk talk) => Remove(talk);
 
-        public async Task<Talk> GetTalkAsync(int talkID) => 
+        public async Task<Talk> GetTalkAsync(long talkID) => 
             await ZedConfDbContext.Talks.Where(t => t.TalkID == talkID).FirstOrDefaultAsync();
     }
 }

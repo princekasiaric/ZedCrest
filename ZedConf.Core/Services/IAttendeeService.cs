@@ -8,6 +8,6 @@ namespace ZedConf.Core.Services
     {
         Task AddAttendeeAsynce(AttendeeDTO attendeeDTO);
         Task<ICollection<AttendeeDTO>> GetAttendeesAsync();
-        Task<ICollection<AttendeeDTO>> GetAttendeesByTalkAsync(int talkId);
+        Task<ICollection<AttendeeDTO>> GetAttendeesByTalkAsync(long talkId);
     }
 }

@@ -36,12 +36,12 @@ namespace ZedConf.Core.Services.Implementation
 
         public async Task<ICollection<AttendeeDTO>> GetAttendeesAsync()
         {
-            ICollection<AttendeeDTO> attendeeDTOs = null;
+            var attendeeDTOs = new List<AttendeeDTO>();
             try
             {
                 var attendees = await _unitOfWork.AttendeeRepo.GetAttendeesAsync();
                 if (attendees != null)
-                    attendeeDTOs = _mapper.Map<ICollection<AttendeeDTO>>(attendees);
+                    attendeeDTOs = _mapper.Map<List<AttendeeDTO>>(attendees);
             }
             catch (Exception ex)
             {
@@ -50,14 +50,14 @@ namespace ZedConf.Core.Services.Implementation
             return attendeeDTOs;
         }
 
-        public async Task<ICollection<AttendeeDTO>> GetAttendeesByTalkAsync(int talkId)
+        public async Task<ICollection<AttendeeDTO>> GetAttendeesByTalkAsync(long talkId)
         {
-            ICollection<AttendeeDTO> attendeeDTOs = null;
+            var attendeeDTOs = new List<AttendeeDTO>();
             try
             {
                 var attendees = await _unitOfWork.AttendeeRepo.GetAttendeesByTalkAsync(talkId);
                 if (attendees != null)
-                    attendeeDTOs = _mapper.Map<ICollection<AttendeeDTO>>(attendees);
+                    attendeeDTOs = _mapper.Map<List<AttendeeDTO>>(attendees);
             }
             catch (Exception ex)
             {

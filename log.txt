@@ -220,3 +220,16 @@ ZedConf.Entities.Talk -> ZedConf.Entities.Speaker
 08/14/2020 08:46:18 HTTP "GET" "/weatherforecast" responded 404 in 137.2206 ms
 08/14/2020 08:46:51 Successfully pulled request for Talks
 08/14/2020 08:46:51 HTTP "GET" "/api/talks" responded 200 in 13635.2257 ms
+08/15/2020 09:54:10 ZedConf API Starting Up... 2020 - 08 - 15 16: 54:10.749
+08/15/2020 09:54:29 HTTP "GET" "/ZedConf" responded 404 in 223.4781 ms
+08/15/2020 10:00:08 HTTP "GET" "/" responded 404 in 36.8532 ms
+08/15/2020 10:00:44 Successfully pulled request for Talks
+08/15/2020 10:00:45 HTTP "GET" "/api/talks" responded 200 in 29352.7799 ms
+08/15/2020 10:01:24 HTTP "GET" "/swagger" responded 301 in 8.5020 ms
+08/15/2020 10:01:25 HTTP "GET" "/swagger/index.html" responded 200 in 449.1559 ms
+08/15/2020 10:01:26 HTTP "GET" "/swagger/swagger-ui.css" responded 200 in 723.7113 ms
+08/15/2020 10:01:26 HTTP "GET" "/swagger/swagger-ui-standalone-preset.js" responded 200 in 220.1654 ms
+08/15/2020 10:01:27 HTTP "GET" "/swagger/swagger-ui-bundle.js" responded 200 in 1446.0344 ms
+08/15/2020 10:01:30 HTTP "GET" "/api.zedconf.com/v1/swagger.json" responded 404 in 0.6540 ms
+08/15/2020 10:01:30 HTTP "GET" "/swagger/favicon-32x32.png" responded 200 in 1.4358 ms
+08/15/2020 10:02:36 HTTP "GET" "/api.zedconf.com" responded 404 in 0.7503 ms
